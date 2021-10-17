@@ -1,13 +1,48 @@
+@import-normalize;
+
+html {
+  height: 100%;
+  /*(1920 * x / 100 = 10)*/
+  font-size: 0.52083333vw;
+}
+
+@media screen and (max-width: 1440px) {
+  /*(1440 * x / 100 = 10)*/
+  html {
+    font-size: 0.694444vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /*(1024 * x / 100 = 10)*/
+  html {
+    font-size: 0.9765625vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /*(768 * x / 100 = 10)*/
+  html {
+    font-size: 1.3020833vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  /*(375 * x / 100 = 10)*/
+  html {
+    font-size: 2.666666vw;
+  }
+}
+
 body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Nunito';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  background-color: #f2f2f2;
+  height: 100%;
 }

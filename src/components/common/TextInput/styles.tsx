@@ -17,6 +17,7 @@ export const Input = styled(InputBase)(({ theme }) => ({
   'label + &': {
     marginTop: '2rem',
   },
+
   '& .MuiInputBase-input': {
     borderRadius: '8px',
     position: 'relative',
@@ -30,5 +31,10 @@ export const Input = styled(InputBase)(({ theme }) => ({
       border: ' 1px solid #4B9CE2',
       backgroundColor: '#F0F8FF',
     },
+  },
+
+  '&.Mui-error .MuiInputBase-input': {
+    backgroundColor: '#FFE5E5',
+    borderColor: '#F77474',
   },
 }));

@@ -1,1 +1,1 @@
-export const API_URL = 'http://bootcampapi.techcs.io/api/fe/v1/';
+export const API_URL = 'https://bootcampapi.techcs.io/api/fe/v1/';

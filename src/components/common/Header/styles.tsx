@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { device } from '../../constants/Size';
+import { device } from '../../../constants/Size';
 
 export const CustomHeader = styled.header`
   background-color: #fff;
-  margin-bottom: 2rem;
 
   .content {
     display: flex;

@@ -31,6 +31,7 @@ export const CustomDarkButton = styled(CustomButton)`
 
 export const CustomLightButton = styled(CustomButton)`
   &.MuiButton-root {
+    white-space: nowrap;
     background-color: #f0f8ff;
     color: #4b9ce2;
   }

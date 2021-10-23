@@ -1,4 +1,4 @@
-import HttpClient from '../plugins/HttpClient';
+import HttpClient from '../../../plugins/HttpClient';
 
 const urls = {
   post: {
@@ -18,7 +18,7 @@ class AuthService {
       const response = await HttpClient.fetch<SignInRequest, any>({ path: urls.post.signin, body, method: 'POST' });
       return response;
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   };
 }

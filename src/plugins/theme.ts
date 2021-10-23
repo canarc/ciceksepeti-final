@@ -5,13 +5,18 @@ export interface ITheme {
   primary: string;
   paper: string;
   textPrimary: string;
+  textBlue: string;
   textSecondary: string;
+  textTertiary: string;
 }
 
 interface ITypography {
   title: {};
   title1: {};
+  title2: {};
+  title3: {};
   subTitle: {};
+  subTitle1: {};
 }
 
 interface IPalette {
@@ -29,7 +34,9 @@ export const AppColors: ITheme = {
   primary: '#fff',
   paper: '#fff',
   textPrimary: '#525252',
+  textBlue: '#4B9CE2',
   textSecondary: '#B1B1B1',
+  textTertiary: '#3E3E3E',
 };
 
 const commonTheme = {
@@ -59,11 +66,29 @@ const commonTheme = {
       lineHeight: '2rem',
       color: AppColors.textPrimary,
     },
+    title2: {
+      fontWeight: 600,
+      fontSize: '1.5rem',
+      lineHeight: '2.2rem',
+      color: AppColors.textBlue,
+    },
+    title3: {
+      fontWeight: 600,
+      fontSize: '1.8rem',
+      lineHeight: '2.2rem',
+      color: AppColors.textTertiary,
+    },
     subTitle: {
       fontSize: '1.2rem',
       fontWeight: 400,
       lineHeight: '1.6rem',
       color: AppColors.textSecondary,
+    },
+    subTitle1: {
+      fontSize: '1.3rem',
+      fontWeight: 400,
+      lineHeight: '2.2rem',
+      color: AppColors.textTertiary,
     },
   },
 

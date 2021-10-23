@@ -21,7 +21,7 @@ export const Card = styled(Box)`
   align-items: center;
   text-align: center;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: calc(100% - 2rem);
     margin: 0px auto;
     padding: 2.1rem;

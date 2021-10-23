@@ -5,7 +5,7 @@ import { device } from '../../constants/Size';
 export const BackgroundImage = styled.img`
   width: 83.5rem;
   object-fit: cover;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
   }
 `;

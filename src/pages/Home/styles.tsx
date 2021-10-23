@@ -15,6 +15,7 @@ export const CustomTabs = styled(Tabs)`
     justify-content: start;
 
     & > button {
+      white-space: nowrap;
       font-size: 1.8rem;
       font-weight: 500;
       line-height: 2.4rem;
@@ -24,7 +25,12 @@ export const CustomTabs = styled(Tabs)`
       min-height: unset;
       height: 3.1rem;
       padding: 0;
+      padding-bottom: 0.5rem;
       width: min-content !important;
+    }
+
+    & > .Mui-selected {
+      color: #4b9ce2;
     }
 
     @media ${device.tablet} {

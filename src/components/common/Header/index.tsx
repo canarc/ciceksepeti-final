@@ -18,14 +18,14 @@ const Header = () => {
         <div className="buttonContainer">
           {token ? (
             <>
-              <LightButton icon={Plus} label="Ürün Ekle" />
-              <LightButton icon={User} label="Hesabım" />
+              <LightButton icon={Plus} onClick={() => history.push('/addProduct')} label="Ürün Ekle" />
+              <LightButton icon={User} onClick={() => history.push('/account')} label="Hesabım" />
             </>
           ) : (
             <LightButton
               icon={User}
               onClick={() => {
-                history.push('signIn');
+                history.push('/signIn');
               }}
               label="Giriş Yap"
             />

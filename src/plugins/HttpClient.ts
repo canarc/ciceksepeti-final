@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { AxiosResponse } from 'axios';
 import { API_URL } from '../constants/HttpClientConfig';
+import { getCookie } from '../helpers/cookie';
 
 /* interface Response<T> {
 	data: T
@@ -26,8 +27,13 @@ interface RequestError {
 
 class HttpClientService {
   fetch<R, T>(config: RequestSettings<R>): Promise<T> {
+    const token = JSON.parse(getCookie('token') || '{}').token;
+
     return new Promise((resolve, reject) => {
       axios({
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         method: config.method,
         url: API_URL + config.path,
         data: config.body,

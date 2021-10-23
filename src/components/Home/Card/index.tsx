@@ -10,6 +10,7 @@ type CardProps = {
 
 const Card: FC<CardProps> = ({ product, onClick }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const {
     imageUrl,
     brand: { title: brandTitle },
@@ -19,12 +20,12 @@ const Card: FC<CardProps> = ({ product, onClick }) => {
 
   return (
     <>
-      <CustomCard style={{ display: isLoaded ? 'none' : 'block' }}>
+      <CustomCard style={{ display: isLoaded ? 'none' : hasError ? 'none' : 'block' }}>
         <Skeleton sx={{ borderRadius: '0.8rem' }} variant="rectangular" width="26rem" height="29.7rem" />
         <Skeleton variant="rectangular" width="26rem" height="6.5rem" sx={{ marginTop: '0.5rem', borderRadius: '0.8rem' }} />
       </CustomCard>
       <CustomCard onClick={onClick} style={{ display: !isLoaded ? 'none' : 'block' }}>
-        <img onLoad={() => setIsLoaded(true)} src={imageUrl} alt="productimage" />
+        <img onLoad={() => setIsLoaded(true)} onError={() => setHasError(true)} src={imageUrl} alt="productimage" />
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography sx={{ textTransform: 'capitalize' }} variant="title2">
             {brandTitle}

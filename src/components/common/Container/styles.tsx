@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const CustomContainer = styled(Box)`
   width: calc(100% - 2rem);
   height: calc(100% - 8rem);
-  padding-top: 2rem;
+  padding: 2rem 0 1rem 0;
   overflow: auto;
   max-width: 1480px;
   margin: auto;

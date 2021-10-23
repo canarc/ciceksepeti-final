@@ -1,19 +1,24 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import HomeLayout from './components/common/HomeLayout';
+import MainLayout from './components/common/MainLayout';
 import { getCookie } from './helpers/cookie';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import { Dispatch } from './redux';
+import { Dispatch, RootState } from './redux';
+import Loading from './components/common/Loading';
 
 function App() {
-  const token = getCookie('token');
+  const token = JSON.parse(getCookie('token') || '{}').token;
   const dispatch = useDispatch<Dispatch>();
+  const isAppLoading = useSelector<RootState, boolean>((state) => state.loading.global);
 
   useEffect(() => {
     dispatch.category.GetAllCategories();
     dispatch.product.GetAllProducts();
+    dispatch.account.GetGivenOffers();
+    dispatch.account.GetReceivedOffers();
+    dispatch.detail.GetAllDetails();
   }, []);
 
   return (
@@ -25,9 +30,10 @@ function App() {
           <Redirect to="/signIn" />
         </Route>
         <Route path="/">
-          <HomeLayout />
+          <MainLayout />
         </Route>
       </Switch>
+      <Loading show={isAppLoading}></Loading>
     </Router>
   );
 }

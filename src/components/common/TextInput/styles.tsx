@@ -33,6 +33,12 @@ export const Input = styled(InputBase)(({ theme }) => ({
     },
   },
 
+  '& div': {
+    fontSize: '1.6rem',
+    lineHeight: '2.2rem',
+    color: '#99A0A7',
+  },
+
   '&.Mui-error .MuiInputBase-input': {
     backgroundColor: '#FFE5E5',
     borderColor: '#F77474',

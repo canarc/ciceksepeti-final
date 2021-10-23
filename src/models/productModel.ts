@@ -1,17 +1,4 @@
-export interface Brand {
-  id: string;
-  title: string;
-}
-
-export interface Color {
-  id: string;
-  title: string;
-}
-
-export interface Status {
-  id: string;
-  title: string;
-}
+import { Brand, Color, Status } from './detailModel';
 
 export interface Category {
   id: string;

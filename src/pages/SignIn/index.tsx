@@ -33,7 +33,7 @@ const SignIn = () => {
     if (email.length && password.length && !emailError && !passwordError) {
       try {
         const response = await AuthService.SignIn({ email, password });
-        setCookie('token', response.access_token, 1);
+        setCookie('token', JSON.stringify({ email: email, token: response.access_token }), 1);
         history.go(-1);
       } catch {
         toast.error('Lütfen email ve şifrenizi kontrol edin.', toastConfig);

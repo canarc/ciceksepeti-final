@@ -1,6 +1,7 @@
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import { FC, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { Dispatch } from '../../redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { device } from '../../constants/Size';
 import { useWindowSize } from '../../helpers/sizeHook';
 import { Offer } from '../../models/offerModel';
@@ -14,21 +15,22 @@ type GivenOfferProps = {
   offer: Offer;
 };
 
-const GivenOffer: FC<GivenOfferProps> = ({ offer }) => {
+const ReceivedOffer: FC<GivenOfferProps> = ({ offer }) => {
+  const dispatch = useDispatch<Dispatch>();
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const size = useWindowSize();
 
   const renderGivenOfferStatus = () => {
     switch (offer.status) {
       case 'accepted':
-        return (
-          <>
-            <DarkButton onClick={() => setShowPurchaseModal(true)} sx={{ minWidth: '8.6rem', fontSize: '1.5rem !important', marginRight: '3rem' }} variant="contained" label="Satın Al" />
-            <Typography variant="title2">Onaylandı</Typography>
-          </>
-        );
+        return <Typography variant="title2">Kabul Edildi</Typography>;
       case 'offered':
-        return <Typography variant="title2">Teklif Yapıldı</Typography>;
+        return (
+          <Box display="flex" gap="1rem">
+            <DarkButton label="Onayla" onClick={() => dispatch.account.AcceptOffer({ offerId: offer.id })} />
+            <DarkButton bgColor="error" label="Reddet" onClick={() => dispatch.account.RejectOffer({ offerId: offer.id })} />
+          </Box>
+        );
       case 'rejected':
         return (
           <Typography sx={{ color: '#F77474' }} variant="title2">
@@ -49,7 +51,7 @@ const GivenOffer: FC<GivenOfferProps> = ({ offer }) => {
         </Typography>
         <Box sx={{ backgroundColor: AppColors.paperSecondary }} width="100%" maxWidth="23rem" padding="0.8rem 1rem" borderRadius="0.8rem" display="flex" gap="0.7rem">
           <Typography fontWeight="400" color={AppColors.textSixth} variant="title3">
-            Verilen Teklif:
+            Alınan Teklif:
           </Typography>
           <Typography variant="title3">{offer.offeredPrice} TL</Typography>
         </Box>
@@ -84,4 +86,4 @@ const GivenOffer: FC<GivenOfferProps> = ({ offer }) => {
   );
 };
 
-export default GivenOffer;
+export default ReceivedOffer;

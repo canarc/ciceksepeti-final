@@ -36,11 +36,21 @@ export const CustomTabs = styled(Tabs)`
     @media ${device.tablet} {
       gap: 2.5rem;
     }
+
+    @media ${device.mobileL} {
+      & > button {
+        height: 2.4rem;
+      }
+    }
   }
 
   .MuiTabs-indicator  {
     top: 3.05rem;
     background-color: #4b9ce2;
+
+    @media ${device.mobileL} {
+      top: 2.3rem;
+    }
   }
 
   margin-top: 3rem;

@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import styled from 'styled-components';
+import { device } from '../../constants/Size';
 
 export const OfferContainer = styled(Box)`
   border-radius: 0.8rem;
@@ -17,5 +18,9 @@ export const OfferContainer = styled(Box)`
     width: 7.8rem;
     height: 8.4rem;
     object-fit: contain;
+  }
+
+  @media ${device.tablet} {
+    height: min-content;
   }
 `;

@@ -24,11 +24,28 @@ export const Container = styled(Box)`
     flex-direction: column;
     gap: 1rem;
     height: min-content;
+    max-height: calc(100% - 7rem);
+    overflow: auto;
 
     & > img {
+      object-fit: contain;
       object-position: top center;
+      min-height: 40vh !important;
       width: 100%;
-      height: auto;
+    }
+
+    & > div > .MuiBox-root {
+      padding: 0;
+      gap: 1rem;
+      .MuiTypography-title1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
+
+    .MuiTypography-title4 {
+      font-size: 1.8rem;
+      line-height: 2.3rem;
     }
   }
 `;

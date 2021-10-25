@@ -1,16 +1,22 @@
 import { Tab } from '@mui/material';
 import BannerImage from '../../assets/Home/Banner.png';
 import { Banner, CustomTabs } from './styles';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch, RootState } from '../../redux';
 import { useHistory, useParams } from 'react-router';
 import ProductsGrid from '../../components/Home/ProductsGrid';
+import { useEffect } from 'react';
 
 const Home = () => {
+  const dispatch = useDispatch<Dispatch>();
   const categories = useSelector((state: RootState) => state.category.categories);
   const history = useHistory();
-
   const { categoryId } = useParams<{ categoryId: string }>();
+
+  useEffect(() => {
+    dispatch.product.GetAllProducts();
+    dispatch.account.GetGivenOffers();
+  }, []);
 
   return (
     <>

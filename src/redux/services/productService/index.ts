@@ -53,6 +53,13 @@ const product = createModel<RootModel>()({
         return false;
       }
     },
+
+    createProduct: async (product: Product): Promise<any> => {
+      try {
+        await ProductService.Create(product);
+        return true;
+      } catch {}
+    },
   }),
 });
 

@@ -12,7 +12,7 @@ import { CheckEmail, CheckPassword } from '../../helpers/validation';
 import AuthService from '../../redux/services/authService/api';
 import { BackgroundImage, Card, RightContainer, TitleContainer } from './styles';
 
-const SignIn = () => {
+const SignUp = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -32,9 +32,9 @@ const SignIn = () => {
   const onSubmit = async () => {
     if (email.length && password.length && !emailError && !passwordError) {
       try {
-        const response = await AuthService.SignIn({ email, password });
-        setCookie('token', response.access_token, 1);
-        history.go(-1);
+        const response = await AuthService.SignUp({ email, password });
+        setCookie('token', JSON.stringify({ email: email, token: response.access_token }), 1);
+        history.push('/');
       } catch {
         toast.error('Lütfen email ve şifrenizi kontrol edin.', toastConfig);
       }
@@ -71,4 +71,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

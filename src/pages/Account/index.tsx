@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, RootState } from '../../redux';
 import { Offer } from '../../models/offerModel';
 import GivenOffer from '../../components/Account/GivenOffer';
+import ReceivedOffer from '../../components/Account/ReceivedOffer';
 
 export default function Account() {
-  const theme = useTheme();
   const dispatch = useDispatch<Dispatch>();
   const [selectedTab, setSelectedTab] = useState('receivedOffers');
   const receivedOffers = useSelector<RootState, Offer[]>((state) => state.account.receivedOffers);
@@ -21,17 +21,17 @@ export default function Account() {
   }, []);
 
   const renderGivenOffers = () => givenOffers.map((offer) => <GivenOffer offer={offer} />);
-  const renderReceivedOffers = () => receivedOffers.map((offer) => <GivenOffer offer={offer} />);
+  const renderReceivedOffers = () => receivedOffers.map((offer) => <ReceivedOffer offer={offer} />);
 
   return (
     <>
-      <Box width="100%" maxWidth="148rem" bgcolor="white" height="7rem" borderRadius="0.8rem" display="flex" gap="1rem" alignItems="center" padding="1.6rem 2.6rem">
+      <Box minWidth="100%" maxWidth="148rem" bgcolor="white" height="7rem" borderRadius="0.8rem" display="flex" gap="1rem" alignItems="center" padding="1.6rem 2.6rem">
         <img style={{ height: '3.8rem', width: '3.8rem' }} src={User} alt="profilePic" />
         <Typography fontWeight="bold" variant="title1">
           {JSON.parse(getCookie('token') || '{}').email}
         </Typography>
       </Box>
-      <Box marginTop="1rem" height="70.9rem" maxHeight="70.9rem" borderRadius="0.8rem" overflow="auto" bgcolor="white" padding="2rem 0" display="flex" flexDirection="column" gap="2rem">
+      <Box marginTop="1rem" minHeight="70.9rem" maxHeight="100%" borderRadius="0.8rem" overflow="auto" bgcolor="white" padding="2rem 0" display="flex" flexDirection="column" gap="2rem">
         <CustomTabs
           scrollButtons={false}
           variant="scrollable"

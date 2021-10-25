@@ -10,6 +10,7 @@ const urls = {
   },
   post: {
     makeOffer: 'product/offer/',
+    create: 'product/create',
   },
   put: {
     purchase: 'product/purchase/',
@@ -43,6 +44,16 @@ class ProductService {
   static Purchase = async (productId: string) => {
     try {
       const response = await HttpClient.fetch<null, Product>({ path: urls.put.purchase + productId, method: 'PUT' });
+      return response;
+    } catch (err) {
+      toast.error('Bir hata oluştu.', toastConfig);
+      throw err;
+    }
+  };
+
+  static Create = async (product: Product) => {
+    try {
+      const response = await HttpClient.fetch<Product, any>({ path: urls.post.create, body: { ...product }, method: 'POST' });
       return response;
     } catch (err) {
       toast.error('Bir hata oluştu.', toastConfig);

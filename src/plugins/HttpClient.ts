@@ -17,6 +17,7 @@ interface RequestSettings<R> {
   path: string;
   method: Methods;
   body?: R;
+  header?: Headers;
   params?: object;
 }
 
@@ -33,6 +34,7 @@ class HttpClientService {
       axios({
         headers: {
           Authorization: `Bearer ${token}`,
+          ...config.header,
         },
         method: config.method,
         url: API_URL + config.path,

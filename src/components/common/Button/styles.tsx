@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, colors } from '@mui/material';
 import styled from 'styled-components';
 
 const CustomButton = styled(Button)`
@@ -20,7 +20,7 @@ const CustomButton = styled(Button)`
 
 export const CustomDarkButton = styled(CustomButton)`
   &.MuiButton-root {
-    background-color: #4b9ce2;
+    background-color: ${({ color }: any) => color || '#4b9ce2'};
   }
 
   &:hover {

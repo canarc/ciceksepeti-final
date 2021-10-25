@@ -1,4 +1,4 @@
-import { CustomCard } from './styles';
+import { CustomCard, TitleContainer } from './styles';
 import { Box, Skeleton, Typography } from '@mui/material';
 import { Product } from '../../../models/productModel';
 import { FC, memo, useState } from 'react';
@@ -26,14 +26,14 @@ const Card: FC<CardProps> = ({ product, onClick }) => {
       </CustomCard>
       <CustomCard onClick={onClick} style={{ display: !isLoaded ? 'none' : 'block' }}>
         <img onLoad={() => setIsLoaded(true)} onError={() => setHasError(true)} src={imageUrl} alt="productimage" />
-        <Box display="flex" flexDirection="row" justifyContent="space-between">
+        <TitleContainer>
           <Typography sx={{ textTransform: 'capitalize' }} variant="title2">
             {brandTitle}
           </Typography>
           <Typography sx={{ textTransform: 'capitalize' }} variant="subTitle1">
             <b>Renk:</b> {colorTitle}
           </Typography>
-        </Box>
+        </TitleContainer>
         <Typography variant="title3">{price} TL</Typography>
       </CustomCard>
     </>

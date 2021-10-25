@@ -1,6 +1,8 @@
 /* eslint-disable no-shadow */
 import { createTheme, ThemeOptions } from '@mui/material';
 
+const fontScale = 1;
+
 export type ITheme = typeof AppColors;
 interface ITypography {
   title: {};

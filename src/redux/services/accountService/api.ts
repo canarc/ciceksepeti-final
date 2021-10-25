@@ -44,6 +44,24 @@ class AccountService {
       throw err;
     }
   };
+
+  static AcceptOffer = async (offerId: string) => {
+    try {
+      const response = await HttpClient.fetch<null, null>({ path: urls.put.acceptOffer + offerId, method: 'PUT' });
+      return response;
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  static RejectOffer = async (offerId: string) => {
+    try {
+      const response = await HttpClient.fetch<null, null>({ path: urls.post.rejectOffer + offerId, method: 'POST' });
+      return response;
+    } catch (err) {
+      throw err;
+    }
+  };
 }
 
 export default AccountService;

@@ -27,14 +27,18 @@ const PurchaseModal: FC<OfferModalProps> = ({ show, product, onHide }) => {
   };
 
   return (
-    <Modal style={{ textAlign: 'center' }} onHide={onHide} show={show}>
+    <Modal style={{ textAlign: 'center' }} onHide={() => onHide()} show={show}>
       <Typography variant="title5">Satın Al</Typography>
       <Typography marginTop="1.2rem" variant="subTitle3">
         Satın almak istiyor musunuz?
       </Typography>
-      <Box marginTop="2rem" display="flex" gap="1rem">
-        <LightButton onClick={onHide} label="Vazgeç" />
-        <DarkButton label="Satın Al" onClick={PurchaseProduct} />
+      <Box marginTop="2rem" display="flex" gap="1rem" justifyContent="center">
+        <Box width="15rem">
+          <LightButton fullWidth onClick={() => onHide()} label="Vazgeç" />
+        </Box>
+        <Box width="15rem">
+          <DarkButton fullWidth label="Satın Al" onClick={PurchaseProduct} />
+        </Box>
       </Box>
     </Modal>
   );

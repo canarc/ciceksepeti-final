@@ -39,6 +39,26 @@ const account = createModel<RootModel>()({
     DELETE_GIVEN_OFFER: (state: AccountState, offerId: string) => {
       return { ...state, givenOffers: state.givenOffers.filter((_offer) => _offer.id !== offerId) };
     },
+
+    SET_OFFER_ACCEPTED: (state: AccountState, offerId: string) => {
+      return {
+        ...state,
+        receivedOffers: state.receivedOffers.map((offer) => {
+          if (offer.id === offerId) offer.status = 'accepted';
+          return offer;
+        }),
+      };
+    },
+
+    SET_OFFER_REJECTED: (state: AccountState, offerId: string) => {
+      return {
+        ...state,
+        receivedOffers: state.receivedOffers.map((offer) => {
+          if (offer.id === offerId) offer.status = 'rejected';
+          return offer;
+        }),
+      };
+    },
   },
 
   effects: (dispatch) => ({
@@ -60,6 +80,20 @@ const account = createModel<RootModel>()({
       try {
         await AccountService.CancelOffer(offerId);
         dispatch.account.DELETE_GIVEN_OFFER(offerId);
+      } catch {}
+    },
+
+    AcceptOffer: async ({ offerId }: { offerId: string }) => {
+      try {
+        await AccountService.AcceptOffer(offerId);
+        dispatch.account.SET_OFFER_ACCEPTED(offerId);
+      } catch {}
+    },
+
+    RejectOffer: async ({ offerId }: { offerId: string }) => {
+      try {
+        await AccountService.RejectOffer(offerId);
+        dispatch.account.SET_OFFER_REJECTED(offerId);
       } catch {}
     },
   }),

@@ -1,10 +1,11 @@
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
+import styled from 'styled-components';
 import { device } from '../../constants/Size';
 
-export const BackgroundImage = styled('img')`
+export const BackgroundImage = styled.img`
   width: 83.5rem;
   object-fit: cover;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
   }
 `;
@@ -14,14 +15,14 @@ export const Card = styled(Box)`
   height: 55.4rem;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 12px #1e36480a;
-  border-radius: 0.8rem;
+  border-radius: 8px;
   opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     width: calc(100% - 2rem);
     margin: 0px auto;
     padding: 2.1rem;

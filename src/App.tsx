@@ -15,9 +15,7 @@ function App() {
 
   useEffect(() => {
     dispatch.category.GetAllCategories();
-    dispatch.product.GetAllProducts();
     dispatch.account.GetGivenOffers();
-    dispatch.account.GetReceivedOffers();
     dispatch.detail.GetAllDetails();
   }, []);
 

@@ -34,5 +34,26 @@ export const CustomCard = styled(Box)`
     & > img {
       height: 18.4rem;
     }
+
+    .MuiTypography-title3,
+    .MuiTypography-title2 {
+      font-size: 1.5rem;
+      line-height: 1.2rem;
+    }
+
+    .MuiTypography-subTitle1 {
+      font-size: 1rem;
+      line-height: 2.2rem;
+    }
+  }
+`;
+
+export const TitleContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media ${device.mobileL} {
+    flex-direction: column;
   }
 `;

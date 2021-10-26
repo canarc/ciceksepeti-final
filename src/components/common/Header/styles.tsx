@@ -29,6 +29,9 @@ export const CustomHeader = styled.header`
       & > button {
         height: 4rem;
         @media ${device.mobileL} {
+          &:first-child > img {
+            margin-right: 0;
+          }
           &:first-child > p {
             display: none;
           }

@@ -33,6 +33,7 @@ export const CustomCard = styled(Box)`
 
     & > img {
       height: 18.4rem;
+      margin-bottom: 1rem;
     }
 
     .MuiTypography-title3,

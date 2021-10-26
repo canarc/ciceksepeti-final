@@ -12,7 +12,7 @@ export const DarkButton: FC<ContainedButtonProps> = ({ onClick, disabled, icon, 
   return (
     <CustomDarkButton onClick={onClick} sx={sx} disabled={disabled} variant="contained" fullWidth={fullWidth} color={bgColor}>
       {icon && <img style={{ height: '1.3rem' }} src={icon} alt="icon" />}
-      <p>{label}</p>
+      {label && <p>{label}</p>}
     </CustomDarkButton>
   );
 };
@@ -21,7 +21,7 @@ export const LightButton: FC<ContainedButtonProps> = ({ onClick, disabled, icon,
   return (
     <CustomLightButton onClick={onClick} sx={sx} disabled={disabled} variant="contained" fullWidth={fullWidth}>
       {icon && <img style={{ height: '1.3rem' }} src={icon} alt="icon" />}
-      <p>{label}</p>
+      {label && <p>{label}</p>}
     </CustomLightButton>
   );
 };

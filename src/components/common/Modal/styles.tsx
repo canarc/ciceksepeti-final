@@ -30,8 +30,8 @@ export const CustomModal = styled.div`
 export const ModalContent = styled(Box)`
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
   width: 48rem;
+  border-radius: 0.8rem;
   padding: 2rem !important;
   background-color: white;
 

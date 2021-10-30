@@ -12,3 +12,7 @@ Then
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+![desktop](https://github.com/canarc/ciceksepeti-final/blob/master/desktop.png)
+
+![mobile](https://github.com/canarc/ciceksepeti-final/blob/master/mobile.png)
